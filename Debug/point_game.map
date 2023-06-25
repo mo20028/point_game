@@ -158,7 +158,7 @@ LOAD c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x26ce
+.text           0x00000000     0x26c4
  *(.vectors)
  .vectors       0x00000000       0x54 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -327,22 +327,22 @@ LOAD c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000021cc       0x46 ./main.o
                 0x000021cc                ball_position
  .text.displaygame
-                0x00002212      0x406 ./main.o
+                0x00002212      0x3fc ./main.o
                 0x00002212                displaygame
- .text.libgcc   0x00002618       0x44 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00002618                __udivmodsi4
- .text.libgcc   0x0000265c        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000265c        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000265c        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000265c       0x38 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x0000265c                __prologue_saves__
- .text.libgcc   0x00002694       0x36 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00002694                __epilogue_restores__
-                0x000026ca                . = ALIGN (0x2)
+ .text.libgcc   0x0000260e       0x44 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x0000260e                __udivmodsi4
+ .text.libgcc   0x00002652        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00002652        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00002652        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00002652       0x38 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00002652                __prologue_saves__
+ .text.libgcc   0x0000268a       0x36 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x0000268a                __epilogue_restores__
+                0x000026c0                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000026ca        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000026ca                exit
-                0x000026ca                _exit
+ .fini9         0x000026c0        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000026c0                exit
+                0x000026c0                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -361,11 +361,11 @@ LOAD c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000026ca        0x4 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000026c0        0x4 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000026ce                _etext = .
+                0x000026c4                _etext = .
 
-.data           0x00800060       0x36 load address 0x000026ce
+.data           0x00800060       0x26 load address 0x000026c4
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -394,75 +394,71 @@ LOAD c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .data          0x00800085        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
  .data          0x00800085        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.data*)
- .data.arr      0x00800085        0x8 ./main.o
-                0x00800085                arr
- .data.arr_1    0x0080008d        0x8 ./main.o
-                0x0080008d                arr_1
- .data.ball     0x00800095        0x1 ./main.o
-                0x00800095                ball
+ .data.ball     0x00800085        0x1 ./main.o
+                0x00800085                ball
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800096                . = ALIGN (0x2)
-                0x00800096                _edata = .
-                0x00800096                PROVIDE (__data_end, .)
+                0x00800086                . = ALIGN (0x2)
+                0x00800086                _edata = .
+                0x00800086                PROVIDE (__data_end, .)
 
-.bss            0x00800096        0x8
-                0x00800096                PROVIDE (__bss_start, .)
+.bss            0x00800086        0x8
+                0x00800086                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x00800096        0x0 ./CLCD_program.o
- .bss           0x00800096        0x0 ./DIO-progarm.o
- .bss           0x00800096        0x0 ./LCD_proram.o
- .bss           0x00800096        0x0 ./PORT_program.o
- .bss           0x00800096        0x0 ./main.o
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .bss           0x00800096        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00800086        0x0 ./CLCD_program.o
+ .bss           0x00800086        0x0 ./DIO-progarm.o
+ .bss           0x00800086        0x0 ./LCD_proram.o
+ .bss           0x00800086        0x0 ./PORT_program.o
+ .bss           0x00800086        0x0 ./main.o
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .bss           0x00800086        0x0 c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.bss*)
  .bss.leftPaddlePosition
-                0x00800096        0x1 ./main.o
-                0x00800096                leftPaddlePosition
+                0x00800086        0x1 ./main.o
+                0x00800086                leftPaddlePosition
  .bss.rightPaddlePosition
-                0x00800097        0x1 ./main.o
-                0x00800097                rightPaddlePosition
+                0x00800087        0x1 ./main.o
+                0x00800087                rightPaddlePosition
  .bss.leftPlayerScore
-                0x00800098        0x1 ./main.o
-                0x00800098                leftPlayerScore
+                0x00800088        0x1 ./main.o
+                0x00800088                leftPlayerScore
  .bss.rightPlayerScore
-                0x00800099        0x1 ./main.o
-                0x00800099                rightPlayerScore
+                0x00800089        0x1 ./main.o
+                0x00800089                rightPlayerScore
  *(COMMON)
- COMMON         0x0080009a        0x4 ./main.o
-                0x0080009a                right_value
-                0x0080009b                ball_po
-                0x0080009c                dir
-                0x0080009d                left_value
-                0x0080009e                PROVIDE (__bss_end, .)
-                0x000026ce                __data_load_start = LOADADDR (.data)
-                0x00002704                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080008a        0x4 ./main.o
+                0x0080008a                right_value
+                0x0080008b                ball_po
+                0x0080008c                dir
+                0x0080008d                left_value
+                0x0080008e                PROVIDE (__bss_end, .)
+                0x000026c4                __data_load_start = LOADADDR (.data)
+                0x000026ea                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080009e        0x0
-                0x0080009e                PROVIDE (__noinit_start, .)
+.noinit         0x0080008e        0x0
+                0x0080008e                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080009e                PROVIDE (__noinit_end, .)
-                0x0080009e                _end = .
-                0x0080009e                PROVIDE (__heap_start, .)
+                0x0080008e                PROVIDE (__noinit_end, .)
+                0x0080008e                _end = .
+                0x0080008e                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -480,7 +476,7 @@ LOAD c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x1d40
+.stab           0x00000000     0x1d1c
  *(.stab)
  .stab          0x00000000      0xff0 ./CLCD_program.o
  .stab          0x00000ff0      0x4b0 ./DIO-progarm.o
@@ -489,12 +485,12 @@ LOAD c:/users/ms/downloads/eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                                  0xe4 (size before relaxing)
  .stab          0x00001578      0x168 ./PORT_program.o
                                 0x1e0 (size before relaxing)
- .stab          0x000016e0      0x660 ./main.o
-                                0x864 (size before relaxing)
+ .stab          0x000016e0      0x63c ./main.o
+                                0x840 (size before relaxing)
 
-.stabstr        0x00000000      0xc4b
+.stabstr        0x00000000      0xc10
  *(.stabstr)
- .stabstr       0x00000000      0xc4b ./CLCD_program.o
+ .stabstr       0x00000000      0xc10 ./CLCD_program.o
 
 .stab.excl
  *(.stab.excl)

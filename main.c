@@ -12,12 +12,7 @@
 #include  "PORT_interface.h"
 #include  "LCD_interface.h"
 #include  "CLCD_interface.h"
-u8 arr[8]={
-		0b00000000,0b00000000,0b00000000,0b00011100,0b00011100,0b00011100,0b00000000,0
-};
-u8 arr_1[8]={
-		0b00000000,0b00000000,0b00000000,0b00011101,0b00011101,0b00011101,0b00000001,1
-};
+
 
 #define FIELD_WIDTH  16
 #define FIELD_HEIGHT  2
@@ -59,18 +54,6 @@ void  main(void)
 		ball_position();
 		displaygame();
 
-
-//		for(u8 iterator=1;iterator<15;iterator++)
-//		{
-//			CLCD_voidDataShift(Right);
-//			_delay_ms(100);
-//
-//		}
-//		for(u8 iterator=15;iterator>1;iterator--)
-//		{
-//			CLCD_voidDataShift(lift);
-//			_delay_ms(100);
-//		}
 
 	}
 }
@@ -142,7 +125,7 @@ void displaygame()
 	}
 
 	/* set postion of ball 	*/
-	CLCD_voidGOTOXY(1, ball);
+	CLCD_voidGOTOXY(0, ball);
 	CLCD_voidSendData('0');
 	_delay_ms(100);
 
@@ -162,7 +145,7 @@ void displaygame()
 	/* left score */
 	if(ball == 14 && rightPaddlePosition==1)
 	{
-		ball_po=~ball_po;
+
 		leftPlayerScore++;LCD_ClearScreen();
 		CLCD_voidSendString("right score = ");
 		CLCD_voidNumber(rightPlayerScore);
