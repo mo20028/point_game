@@ -15,7 +15,7 @@
 	void CLCD_voidSendCommand(u8 command);
 	void CLCD_voidSendData(u8 DATA);
 	void CLCD_voidSendString(const char* copy_string);
-	void CLCD_voidInit(u8 mode);
+	void CLCD_voidInit(u8 copy_u8mode);
 	void CLCD_voidGOTOXY(u8 copy_u8xpostion,u8 copy_u8ypostion);
 	void CLCD_voidWrite_SpacialC(u8* copy_pu8Arr,u8 copy_u8Blocknum,u8 copy_xpos,u8 copy_u8ypos);
 	void CLCD_voidNumber(u32 copy_u32Number);

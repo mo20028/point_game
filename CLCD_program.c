@@ -23,12 +23,34 @@ void CLCD_voidSendCommand(u8 copy_u8command)
 	setbitvalue(CLCD_CLR_PORT, CLCD_RS_PIN, DIO_u8PIN_LOW);
 	/* set rw PIN to write*/
 	setbitvalue(CLCD_CLR_PORT, CLCD_RW_PIN, DIO_u8PIN_LOW);
+#if mode==0
+
 	/*set data value*/
 	setportvalue(CLCD_DATA_PORT, copy_u8command);
 	/*set the enable pulse..*/
 	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_HIGH);
 	_delay_ms(2);
 	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_LOW);
+#elif mode==1
+	/*make mask to set the high four bits in */
+	u8 Mask=copy_u8command;
+	Mask =(Mask>>4);
+	/*set data value*/
+	setportvalue(CLCD_DATA_PORT, Mask);
+	/*set the enable pulse..*/
+	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_HIGH);
+	_delay_ms(2);
+	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_LOW);
+
+	/*set low for bits in data value*/
+	setportvalue(CLCD_DATA_PORT, copy_u8command);
+	/*set the enable pulse..*/
+	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_HIGH);
+	_delay_ms(2);
+	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_LOW);
+
+
+#endif
 }
 void CLCD_voidSendData(u8 copy_u8Data)
 {
@@ -36,16 +58,37 @@ void CLCD_voidSendData(u8 copy_u8Data)
 	setbitvalue(CLCD_CLR_PORT, CLCD_RS_PIN, DIO_u8PIN_HIGH);
 	/* set rw PIN to write*/
 	setbitvalue(CLCD_CLR_PORT, CLCD_RW_PIN, DIO_u8PIN_LOW);
+#if mode==0
 	/*set data value*/
 	setportvalue(CLCD_DATA_PORT, copy_u8Data);
 	/*set the enable pulse..*/
 	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_HIGH);
 	_delay_ms(2);
 	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_LOW);
+#elif mode==1
+	/*make mask to set the high four bits in */
+	u8 Mask=copy_u8Data;
+	Mask =(Mask>>4);
+
+	/*set high 4 bits*/
+	setportvalue(CLCD_DATA_PORT, Mask);
+	/*set the enable pulse..*/
+	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_HIGH);
+	_delay_ms(2);
+	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_LOW);
+
+	/*set low 4 bits*/
+	setportvalue(CLCD_DATA_PORT, copy_u8Data);
+	/*set the enable pulse..*/
+	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_HIGH);
+	_delay_ms(2);
+	setbitvalue(CLCD_CLR_PORT, CLCD_E_PIN, DIO_u8PIN_LOW);
+#endif
 }
-void CLCD_voidInit(u8 mode)
+void CLCD_voidInit(u8 copy_u8mode)
 {
-	if(mode==mode_1){
+#if mode==0
+	{
 	/*wait for more than 40 ms*/
 	_delay_ms(41);
 
@@ -58,7 +101,7 @@ void CLCD_voidInit(u8 mode)
 	/*clear display*/
 	CLCD_voidSendCommand(1);
 	}
-	else if(mode==mode_2)
+#elif mode ==1
 	{
 		/*wait for more than 40 ms*/
 		_delay_ms(41);
@@ -81,6 +124,7 @@ void CLCD_voidInit(u8 mode)
 		/*clear display*/
 		CLCD_voidSendCommand(1);
 	}
+#endif
 
 }
 void CLCD_voidSendString(const char* copy_string)
