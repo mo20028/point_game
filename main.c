@@ -12,6 +12,8 @@
 #include  "PORT_interface.h"
 #include  "LCD_interface.h"
 #include  "CLCD_interface.h"
+#include  "EXTI_interface.h"
+#include  "GIE_interface.h"
 
 
 #define FIELD_WIDTH  16
@@ -37,6 +39,8 @@ u8 right_value;
 void movePaddles();
 void ball_position();
 void displaygame();
+void left_paddle(void);
+void right_panddle(void);
 
 
 void  main(void)
@@ -44,22 +48,54 @@ void  main(void)
 
 	PORT_voidInti();
 	CLCD_voidInit(0);
+	EXTI_voidInt0_pre();
+	EXTI_voidInt1_pre();
+	EXTI_u8Set_Callback_int0(left_paddle);
+	EXTI_u8Set_Callback_int1(right_panddle);
+
+	GIE_voidEnable();
+
 
 
 
 	while(1){
 
 
-		movePaddles();
+
 		ball_position();
 		displaygame();
 
 
 	}
 }
+void left_paddle(void)
+{
 
+	if(leftPaddlePosition==0)
+	{
+		leftPaddlePosition=1;
+	}
+	else
+	{
+		leftPaddlePosition=0;
+
+	}
+	EXTI_voidclearflag(INT0);
+}
+void right_panddle(void)
+{
+	if(rightPaddlePosition==0)
+	{
+		rightPaddlePosition=1;
+	}
+	else
+	{
+		rightPaddlePosition=0;
+	}
+	EXTI_voidclearflag(INT1);
+}
 void movePaddles() {
-  // Move the left paddle
+	// Move the left paddle
 
 	getbit(DIO_u8PORTC, DIO_u8PIN0, &left_value);
 	if(left_value==0)
@@ -67,7 +103,7 @@ void movePaddles() {
 		if(leftPaddlePosition==0)
 		{
 			leftPaddlePosition=1;
-					}
+		}
 		else
 		{
 			leftPaddlePosition=0;
@@ -92,7 +128,7 @@ void movePaddles() {
 	}
 
 
-  }
+}
 void ball_position()
 {
 	if(dir==0)
@@ -131,17 +167,17 @@ void displaygame()
 
 	/* right score */
 	if(ball ==1&&leftPaddlePosition==1)
-		{
-			rightPlayerScore++;
-			LCD_ClearScreen();
-			CLCD_voidSendString("right score = ");
-			CLCD_voidNumber(rightPlayerScore);
-			CLCD_voidGOTOXY(1, 0);
-			CLCD_voidSendString("left score = ");
-			CLCD_voidNumber(leftPlayerScore);
-			_delay_ms(2000);
+	{
+		rightPlayerScore++;
+		LCD_ClearScreen();
+		CLCD_voidSendString("right score = ");
+		CLCD_voidNumber(rightPlayerScore);
+		CLCD_voidGOTOXY(1, 0);
+		CLCD_voidSendString("left score = ");
+		CLCD_voidNumber(leftPlayerScore);
+		_delay_ms(2000);
 
-		}
+	}
 	/* left score */
 	if(ball == 14 && rightPaddlePosition==1)
 	{

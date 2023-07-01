@@ -6,6 +6,8 @@
 C_SRCS += \
 ../CLCD_program.c \
 ../DIO-progarm.c \
+../EXTI_program.c \
+../GIE_program.c \
 ../LCD_proram.c \
 ../PORT_program.c \
 ../main.c 
@@ -13,6 +15,8 @@ C_SRCS += \
 OBJS += \
 ./CLCD_program.o \
 ./DIO-progarm.o \
+./EXTI_program.o \
+./GIE_program.o \
 ./LCD_proram.o \
 ./PORT_program.o \
 ./main.o 
@@ -20,6 +24,8 @@ OBJS += \
 C_DEPS += \
 ./CLCD_program.d \
 ./DIO-progarm.d \
+./EXTI_program.d \
+./GIE_program.d \
 ./LCD_proram.d \
 ./PORT_program.d \
 ./main.d 
